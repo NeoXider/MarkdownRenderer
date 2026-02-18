@@ -7,9 +7,10 @@ using UnityEngine.Video;
 /// <summary>
 /// A VisualElement that is a VideoPlayer with a roll up play bar with play, speed and audio controls
 /// </summary>
-[UxmlElement]
-public partial class VideoPlayerElement : VisualElement
+public class VideoPlayerElement : VisualElement
 {
+    public new class UxmlFactory : UxmlFactory<VideoPlayerElement, UxmlTraits> { }
+    public new class UxmlTraits : VisualElement.UxmlTraits { }
     // Use a pool where unused player are returned. This avoid creating player
     // in a loop.
     static Queue<VideoPlayer> s_VideoPlayerPool = new();
